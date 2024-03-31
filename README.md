@@ -3,13 +3,14 @@
 NER 모델과 SA 모델을 Flask, GPU 등을 사용해 서빙
 
 ### 1. 가상환경 설정
----
 `python -m venv venv`로 생성, 
 Window: `source venv/Scripts/activate`로 실행
 
-### 2. 패키지 설치
----
-*torch는 GPU와 호환되는 버전으로 다운받아야 함*
+
+### 2. 패키지, CUDA Toolkit 설치
+- GPU에 맞는 CUDA Toolkit 설치
+- *torch는 GPU와 호환되는 버전으로 다운받아야 함*
+
 ```
 pip install flask
 pip install pandas
@@ -23,7 +24,6 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 ```
 
 ### 3. 모델 경로 입력
----
 `model_loader.py`안의 `ner_model_path`와 `sa_model_path` 입력.
 NER은 "NER_model" 폴더를, SA는 klue_large_fold3_s.pth의 경로를 입력.
 
@@ -31,8 +31,8 @@ NER은 "NER_model" 폴더를, SA는 klue_large_fold3_s.pth의 경로를 입력.
 `cuda_check.py`로 GPU를 사용할 수 있는지 확인.?
 
 ### 5. app.py 실행
-- 본문은 string 형태로 입력: 
-    """
+String 형태의 본문 입력
+
     공정거래위원회는 메가스터디교육이 에스티유니타스(공단기) 주식 95.8%를 1030억원에 취득하는 기업 결합에 대해 인수 금지 조치를 부과했다고 21일 밝혔다.
 
     공정위에 따르면 현재 공무원시험 학원 시장 1위 사업자인 공단기는 지난 2012년 한 번의 구매로 모든 강의를 수강할 수 있는 패스 상품을 출시했다. 단과 상품 위주였던 공무원 학원 시장은 패스 상품 출시 이후 급변했다. 공단기가 패스 상품을 저가로 공급하면서 여러 학원에 분산돼 있던 인기 강사들이 유입됐고, 공단기는 2019년까지 독점적 지위를 유지했다. 공단기의 시장점유율이 올라가면서 출시 당시 30만원대에 불과했던 패스 상품 가격은 2019년 최고 285만원까지 비싸졌다.
@@ -45,6 +45,6 @@ NER은 "NER_model" 폴더를, SA는 klue_large_fold3_s.pth의 경로를 입력.
 
     공정위는 이에 인기 강사의 경쟁사 분사 등 행태적 조치나 자산매각 조치만으로는 경쟁제한 우려를 근본적으로 불식시킬 수 없다고 판단, 인수 금지조치를 부과했다. 전원회의 심의 이후 메가스터디 측은 기업결합 신고를 철회했다. 이번 불허 결정은 2016년 SK텔레콤의 CJ헬로비전 인수·합병 불허 이후 8년 만이다.
 
-    """
 
 ### 6. 결과 확인
+

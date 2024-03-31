@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Model Web Service</title>
+</head>
+<body>
+    <h1>ML Model Web Service</h1>
+    <form action="/analyze" method="post">
+        <label for="text">Enter text:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Analyze">
+    </form>
+    
+    {% if ner_result %}
+    <h2>NER Result:</h2>
+    <p>{{ ner_result }}</p>
+    {% endif %}
+    
+    {% if sa_result %}
+    <h2>SA Result:</h2>
+    <p>{{ sa_result }}</p>
+    {% endif %}
+</body>
+</html>

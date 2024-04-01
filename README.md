@@ -28,7 +28,8 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 NER은 "NER_model" 폴더를, SA는 klue_large_fold3_s.pth의 경로를 입력.
 
 ### 4. GPU 사용 확인
-`cuda_check.py`로 GPU를 사용할 수 있는지 확인.?
+`cuda_check.py`로 GPU를 사용할 수 있는지 확인.
+torch의 버전 + GPU, True가 나와야 함.
 
 ### 5. app.py 실행
 String 형태의 본문 입력

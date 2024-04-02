@@ -1,15 +1,16 @@
-# NER-SA-with-GPU
+# 🔖NER-SA-with-GPU
 
-NER 모델과 SA 모델을 Flask, GPU 등을 사용해 서빙
+NER 모델과 SA 모델을 Flask와 GPU 등을 사용해 서빙
 
 ### 1. 가상환경 설정
 `python -m venv venv`로 생성, 
-Window: `source venv/Scripts/activate`로 실행
+- Window: `source venv/Scripts/activate`
 
 
 ### 2. 패키지, CUDA Toolkit 설치
 - GPU에 맞는 CUDA Toolkit 설치
 - *torch는 GPU와 호환되는 버전으로 다운받아야 함*
+- requirements.txt 추가 예정
 
 ```
 pip install flask
@@ -25,14 +26,18 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 
 ### 3. 모델 경로 입력
 `model_loader.py`안의 `ner_model_path`와 `sa_model_path` 입력.
-NER은 "NER_model" 폴더를, SA는 klue_large_fold3_s.pth의 경로를 입력.
+- NER은 "NER_model" 폴더 경로 입력.
+- SA는 klue_large_fold3_s.pth의 경로 입력.
 
 ### 4. GPU 사용 확인
 `cuda_check.py`로 GPU를 사용할 수 있는지 확인.
-torch의 버전 + GPU, True가 나와야 함.
+torch의 버전 + GPU와 True가 나와야 함.
+- `+GPU`가 나오지 않는 경우: uninstall current torch and download torch with GPU
+- `True`가 나오지 않는 경우: CUDA Toolkit 설치 여부와 버전, 호환 여부를 확인
 
 ### 5. app.py 실행
-String 형태의 본문 입력
+String 형태의 본문 입력, 다음은 본문 예시 
+- 출처: 세계일보(https://www.segye.com/newsView/20240321512455)
 
     공정거래위원회는 메가스터디교육이 에스티유니타스(공단기) 주식 95.8%를 1030억원에 취득하는 기업 결합에 대해 인수 금지 조치를 부과했다고 21일 밝혔다.
 
@@ -48,4 +53,5 @@ String 형태의 본문 입력
 
 
 ### 6. 결과 확인
+
 

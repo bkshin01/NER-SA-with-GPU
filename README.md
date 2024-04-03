@@ -11,6 +11,7 @@ NER 모델과 SA 모델을 Flask와 GPU 등을 사용해 서빙
 - GPU에 맞는 CUDA Toolkit 설치
 - *torch는 GPU와 호환되는 버전으로 다운받아야 함*
 - requirements.txt 추가 예정
+1) 직접 다운로드
 
 ```
 pip install flask
@@ -22,6 +23,13 @@ pip install kss
 
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
+```
+
+2) requirements.txt 사용
+- 디렉토리 주의
+- torch는 위의 방법으로 다운로드 권장
+```
+pip install -r requirements.txt
 ```
 
 ### 3. 모델 경로 입력

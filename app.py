@@ -28,7 +28,6 @@ def analyze():
         sa_result = sa_organizer(df2)
         
         return render_template('index.html', ner_result=ner_result, sa_result=sa_result)
-        # return f"NER Result: {ner_result}<br>SA Result: {sa_result}"
 
 if __name__ == '__main__':
     app.run(debug=True)

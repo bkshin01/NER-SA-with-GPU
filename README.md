@@ -27,7 +27,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 
 2) requirements.txt 사용
 - 디렉토리 주의
-- torch는 위의 방법으로 다운로드 권장
+※ torch는 위의 방법으로 다운로드 권장
 ```
 pip install -r requirements.txt
 ```
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 - NER은 "NER_model" 폴더 경로 입력.
 - SA는 klue_large_fold3_s.pth의 경로 입력.
 
-### 4. GPU 사용 확인
+### 4. GPU 사용 확인 (선택)
 `cuda_check.py`로 GPU를 사용할 수 있는지 확인.
 torch의 버전 + GPU와 True가 나와야 함.
 - `+GPU`가 나오지 않는 경우: uninstall current torch and download torch with GPU

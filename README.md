@@ -62,4 +62,5 @@ String 형태의 본문 입력, 다음은 본문 예시
 
 ### 6. 결과 확인
 
+![image](https://github.com/imsinusinu/NER-SA-with-GPU/assets/118626963/fd4afbbc-466b-4320-9bd7-7617d2ae8492)
 

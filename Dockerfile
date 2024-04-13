@@ -1,3 +1,4 @@
+# 기본 이미지 설정
 FROM python:3.12-slim
 
 WORKDIR /app

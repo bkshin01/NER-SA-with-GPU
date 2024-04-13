@@ -30,4 +30,7 @@ def analyze():
         return render_template('index.html', ner_result=ner_result, sa_result=sa_result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
+    # app.run(debug=True) # getaddinfo failed 에러 발생 시 이 코드 사용
+
+# 데스크탑 IP주소: 192.168.35.142 (DESKTOP-RI2Q4JR)

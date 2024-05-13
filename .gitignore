@@ -1,0 +1,6 @@
+__pycache__
+.vscode
+bert_ckpt
+NER_model
+SA_model
+venv

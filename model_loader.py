@@ -12,8 +12,8 @@ from transformers import AutoTokenizer, AutoModelForTokenClassification
 
 # 1. GPU, 모델 경로 세팅
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-NER_MODLE_PATH = "여기에 경로 입력"
-SA_MODLE_PATH = "여기에 경로 입력"
+NER_MODLE_PATH = "NER_model"
+SA_MODLE_PATH = "SA_model/klue_large_fold3_s.pth"
 
 
 # 2. NER 모델 세팅

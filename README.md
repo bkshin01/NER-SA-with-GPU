@@ -14,12 +14,12 @@ NER 모델과 SA 모델을 Flask와 GPU 등을 사용해 서빙
 1) 직접 다운로드
 
 ```
-pip install flask
-pip install pandas
-pip install tensorflow
-pip install transformers
+pip install flask==3.0.2
+pip install pandas==2.2.1
+pip install tensorflow==2.16.1
+pip install transformers==4.39.3
+pip install kss==5.2.0
 pip install tqdm
-pip install kss
 
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
@@ -27,6 +27,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 
 2) requirements.txt 사용
 - 디렉토리 주의
+
 ※ torch는 위의 방법으로 다운로드 권장
 ```
 pip install -r requirements.txt

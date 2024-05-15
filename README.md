@@ -20,8 +20,8 @@ pip install tensorflow==2.16.1
 pip install transformers==4.39.3
 pip install kss==5.2.0
 pip install tqdm
-
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip3 install torch==2.2.2
+pip3 install torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
 ```
 

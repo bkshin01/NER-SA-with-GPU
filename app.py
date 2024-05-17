@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request # , jsonify
+import json
 import pandas as pd
 
 from sentence_split import spliter
@@ -25,12 +26,14 @@ def analyze():
         df2 = sa_go(df1)
 
         ner_result = ner_organizer(df2)
-        sa_result = sa_organizer(df2)
+        sa_result, sa_positive, sa_negative = sa_organizer(df2)
         
-        return render_template('index.html', ner_result=ner_result, sa_result=sa_result)
+        # return render_template('index.html', ner_result=ner_result, sa_result=sa_result)
+        # return jsonify({'ner_result': ner_result, 'sa_result': sa_result})
+        return json.dumps({'ner_result': ner_result, 'sa_result': sa_result
+                           , 'sa_positive': sa_positive, 'sa_negative': sa_negative}
+                           , ensure_ascii = False)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
     # app.run(debug=True) # getaddinfo failed 에러 발생 시 이 코드 사용
-
-# 데스크탑 IP주소: 192.168.35.142 (DESKTOP-RI2Q4JR)

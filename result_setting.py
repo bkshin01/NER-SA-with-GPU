@@ -1,15 +1,15 @@
-# SA 정리
-result_sa = {
-    "부정": 0,  # 2
-    "긍정": 0,  # 1
-    "중립": 0   # 0
-}
-
 neg_= 2 # "다소 부정적입니다."
 pos_= 1 # "다소 긍정적입니다."
 mid_= 0 # "중립적입니다."
 
 def sa_organizer(base):
+
+    result_sa = {
+        "부정": 0,  # 2
+        "긍정": 0,  # 1
+        "중립": 0   # 0
+    }
+
     for sentiment in base['감성분류']:
         if sentiment == "부정":
             result_sa["부정"]+=1
@@ -18,13 +18,17 @@ def sa_organizer(base):
         else:
             result_sa["중립"]+=1
 
+    # 확률 정리
+    pos_per = round((result_sa["긍정"]) / (len(base['감성분류'])) * 100, 2)
+    neg_per = round((result_sa["부정"]) / (len(base['감성분류'])) * 100, 2)
+
     # 한 줄 정리
     if result_sa["부정"] > result_sa["긍정"]:
-        return(neg_)
+        return(neg_, pos_per, neg_per)
     elif result_sa["부정"] < result_sa["긍정"]:
-        return(pos_)
+        return(pos_, pos_per, neg_per)
     else:
-        return(mid_)
+        return(mid_, pos_per, neg_per)
 
 # NER 정리
 def ner_organizer(base):

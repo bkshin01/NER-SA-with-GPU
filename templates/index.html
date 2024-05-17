@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML Model Web Service</title>
+    <title>Text Analysis</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>ML Model Web Service</h1>
-    <form action="/analyze" method="post">
-        <label for="text">Enter text:</label><br>
-        <textarea id="text" name="text" rows="4" cols="50"></textarea><br><br>
-        <input type="submit" value="Analyze">
+    <h1>Text Analysis</h1>
+    <form id="textForm">
+        <textarea id="textInput" rows="4" cols="50"></textarea><br>
+        <button type="button" onclick="submitText()">Analyze</button>
     </form>
-    
-    {% if ner_result %}
-    <h2>NER Result:</h2>
-    <p>{{ ner_result }}</p>
-    {% endif %}
-    
-    {% if sa_result %}
-    <h2>SA Result:</h2>
-    <p>{{ sa_result }}</p>
-    {% endif %}
+    <div id="results">
+        <!-- 결과를 여기에 표시 -->
+    </div>
+
+    <script>
+        function submitText() {
+            var text = $('#textInput').val();
+            $.ajax({
+                url: '/analyze',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ text: text }),
+                success: function(response) {
+                    var result = JSON.parse(response);
+                    $('#results').html(
+                        '<h2>NER Result</h2>' + JSON.stringify(result.ner_result) +
+                        '<h2>SA Result</h2>' + JSON.stringify(result.sa_result) +
+                        '<h3>Positive Sentiments</h3>' + JSON.stringify(result.sa_positive) +
+                        '<h3>Negative Sentiments</h3>' + JSON.stringify(result.sa_negative)
+                    );
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
